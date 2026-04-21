@@ -1,0 +1,170 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-canvas text-ink antialiased;
+  background-image:
+    radial-gradient(circle at top left, rgba(8, 17, 14, 0.58), transparent 28rem),
+    radial-gradient(circle at top right, rgba(33, 71, 60, 0.18), transparent 24rem),
+    linear-gradient(180deg, rgba(8, 17, 14, 0.22), rgba(238, 242, 238, 0) 20rem),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0));
+}
+
+::selection {
+  background: rgba(33, 71, 60, 0.26);
+  color: #141a17;
+}
+
+@layer base {
+  * {
+    @apply border-line;
+  }
+
+  body,
+  input,
+  textarea,
+  select,
+  button {
+    font-feature-settings: "ss01" 1, "cv01" 1;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply text-balance;
+  }
+
+  p {
+    @apply text-pretty;
+  }
+
+  a {
+    @apply outline-none;
+  }
+
+  input,
+  textarea,
+  select {
+    @apply appearance-none;
+  }
+}
+
+@layer components {
+  .type-display {
+    @apply font-serif text-[3rem] leading-[0.9] tracking-heading sm:text-[4.5rem] lg:text-[5.8rem];
+  }
+
+  .type-h1 {
+    @apply font-serif text-[2.5rem] leading-[0.95] tracking-heading sm:text-[4rem] lg:text-[4.8rem];
+  }
+
+  .type-h2 {
+    @apply font-serif text-[2.1rem] leading-[0.98] tracking-heading sm:text-[3.3rem] lg:text-[4rem];
+  }
+
+  .type-h3 {
+    @apply text-[1.15rem] font-semibold leading-[1.14] tracking-[-0.02em] sm:text-[1.45rem];
+  }
+
+  .type-body-lg {
+    @apply text-[1.02rem] leading-8 text-muted sm:text-[1.15rem];
+  }
+
+  .type-body {
+    @apply text-[0.99rem] leading-7 text-muted;
+  }
+
+  .type-label {
+    @apply text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-muted;
+  }
+
+  .section-space {
+    @apply py-16 sm:py-24 lg:py-28;
+  }
+
+  .surface-grid {
+    background-image:
+      linear-gradient(to right, rgba(20, 26, 23, 0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(20, 26, 23, 0.06) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  .fade-divider {
+    @apply h-px w-full bg-gradient-to-r from-transparent via-ink/10 to-transparent;
+  }
+
+  .field-input {
+    @apply h-12 w-full rounded-2xl border border-ink/10 bg-white px-4 text-base text-ink shadow-[inset_0_1px_0_rgba(255,255,255,0.5)] outline-none transition duration-200 placeholder:text-muted/60 hover:border-ink/20 focus:border-accent focus:ring-4 focus:ring-accent/10;
+  }
+
+  .field-textarea {
+    @apply min-h-[132px] w-full rounded-2xl border border-ink/10 bg-white px-4 py-3 text-base text-ink shadow-[inset_0_1px_0_rgba(255,255,255,0.5)] outline-none transition duration-200 placeholder:text-muted/60 hover:border-ink/20 focus:border-accent focus:ring-4 focus:ring-accent/10;
+  }
+
+  .field-select {
+    @apply field-input bg-[linear-gradient(180deg,rgba(255,255,255,1),rgba(252,251,247,1))] pr-10;
+    background-image:
+      linear-gradient(45deg, transparent 50%, rgba(29, 35, 41, 0.55) 50%),
+      linear-gradient(135deg, rgba(29, 35, 41, 0.55) 50%, transparent 50%),
+      linear-gradient(to right, transparent, transparent);
+    background-position:
+      calc(100% - 20px) calc(50% - 2px),
+      calc(100% - 14px) calc(50% - 2px),
+      100% 0;
+    background-size: 6px 6px, 6px 6px, 2.5rem 2.5rem;
+    background-repeat: no-repeat;
+  }
+
+  .premium-card {
+    @apply rounded-[1.6rem] border border-line bg-paper shadow-panel;
+  }
+
+  .hero-shell {
+    @apply relative overflow-hidden rounded-[2rem] border border-white/10 bg-charcoal shadow-[0_52px_100px_-58px_rgba(8,17,14,0.72)];
+    background-image:
+      radial-gradient(circle at top left, rgba(23, 84, 63, 0.34), transparent 20rem),
+      radial-gradient(circle at bottom right, rgba(10, 45, 33, 0.44), transparent 24rem),
+      linear-gradient(145deg, rgba(4, 8, 7, 0.98), rgba(12, 32, 25, 0.98));
+  }
+
+  .hero-dark-panel {
+    @apply rounded-[1.7rem] border border-white/10 bg-charcoal text-white shadow-soft;
+    background-image:
+      radial-gradient(circle at top left, rgba(25, 90, 67, 0.28), transparent 14rem),
+      radial-gradient(circle at bottom right, rgba(10, 45, 33, 0.24), transparent 15rem),
+      linear-gradient(160deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01));
+  }
+
+  .editorial-kicker {
+    @apply text-[0.74rem] font-semibold uppercase tracking-[0.22em] text-muted;
+  }
+
+  .trust-strip {
+    @apply rounded-[1.5rem] border border-white/10 bg-[radial-gradient(circle_at_top_left,rgba(34,92,70,0.32),transparent_14rem),linear-gradient(180deg,rgba(11,29,23,0.98),rgba(4,8,7,0.98))] px-5 py-5 text-white shadow-[0_24px_44px_-30px_rgba(8,17,14,0.82)];
+  }
+
+  .trust-strip .editorial-kicker {
+    color: rgba(135, 181, 157, 0.92);
+  }
+
+  .hero-shell .editorial-kicker {
+    color: rgba(135, 181, 157, 0.88);
+  }
+
+  .micro-grid {
+    background-image:
+      linear-gradient(to right, rgba(199, 208, 200, 0.12) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(199, 208, 200, 0.12) 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+}
